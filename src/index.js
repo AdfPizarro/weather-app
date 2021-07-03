@@ -2,7 +2,7 @@ import './style.css';
 //import generateLanding from './modules/landing';
 
 const apiKey = "2ea2600b2a9f8c39615a9c6cc9ecc342";
-let units="celsius";
+let units="metric";
 
 const cityInput = document.getElementById('input');
 
