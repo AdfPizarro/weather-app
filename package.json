@@ -4,7 +4,10 @@
   "description": "Landing page for a restaurant",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "webpack-dev-server --mode development --open",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "publish": "webpack --mode production"
   },
   "repository": {
     "type": "git",
