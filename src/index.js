@@ -1,53 +1,28 @@
 import './style.css';
-//import generateLanding from './modules/landing';
+// import generateLanding from './modules/landing';
 
-const apiKey = "2ea2600b2a9f8c39615a9c6cc9ecc342";
-let units="metric";
+const apiKey = '2ea2600b2a9f8c39615a9c6cc9ecc342';
+const units = 'metric';
 
 const cityInput = document.getElementById('input');
 
-
-cityInput.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-      let city = cityInput.value;
-       getWeather(city);
-    }
-});
-
-
-
-
-async function getWeather(city) {
-   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-   const response = await fetch(url, {mode: 'cors'});
-   const data = await response.json();
-   console.log(data);
-   draw(data);
-}
-
-
-
-function draw(data){
-  const result_section = document.getElementById('result_section');
-  if (data.cod=="404"){
+function draw(data) {
+  const resultSection = document.getElementById('resultSection');
+  if (data.cod === '404') {
     const location = document.createElement('div');
     const country = document.createElement('div');
     location.setAttribute('class', 'location');
     country.setAttribute('class', 'country');
     location.appendChild(country);
-    result_section.appendChild(location);
-    country.innerHTML = "Select a valid location";
+    resultSection.appendChild(location);
+    country.innerHTML = 'Select a valid location';
+  } else {
+    const dataCountry = data.sys.country;
+    const dataCity = data.name;
+    const dataTemp = Math.round(data.main.temp);
+    const dataWeather = data.weather[0].description;
 
-  }else {
-    const data_country=data.sys.country;
-    const data_city=data.name;
-    const data_temp=Math.round(data.main.temp);
-    const data_weather=data.weather[0]["description"];
-
-
-
-
-    result_section.innerHTML="";
+    resultSection.innerHTML = '';
 
     const location = document.createElement('div');
     const weat = document.createElement('div');
@@ -55,7 +30,6 @@ function draw(data){
     const desc = document.createElement('div');
     const country = document.createElement('div');
     const city = document.createElement('div');
-
 
     location.setAttribute('class', 'location');
     weat.setAttribute('class', 'weather');
@@ -70,19 +44,26 @@ function draw(data){
     weat.appendChild(tem);
     weat.appendChild(desc);
 
-    result_section.appendChild(location);
-    result_section.appendChild(weat);
+    resultSection.appendChild(location);
+    resultSection.appendChild(weat);
 
-
-
-
-    tem.innerHTML = data_temp+"°"+"C";
-    country.innerHTML = data_country+" ";
-    city.innerHTML = data_city;
-    desc.innerHTML = data_weather.charAt(0).toUpperCase() + data_weather.slice(1);;
-
+    tem.innerHTML = `${dataTemp}°C`;
+    country.innerHTML = `${dataCountry} `;
+    city.innerHTML = dataCity;
+    desc.innerHTML = dataWeather.charAt(0).toUpperCase() + dataWeather.slice(1);
   }
-
-
-
 }
+
+async function getWeather(city) {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  const response = await fetch(url, { mode: 'cors' });
+  const data = await response.json();
+  draw(data);
+}
+
+cityInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    const city = cityInput.value;
+    getWeather(city);
+  }
+});

@@ -1,19 +1,19 @@
-.content{
+.content {
   width: 40%;
-  height: 100VH;
+  height: 100vh;
   display: flex;
   margin: auto;
   flex-direction: column;
 }
 
-.input_section{
+.input_section {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 50px 0px;
+  padding: 50px 0;
 }
 
-.result_section{
+.result_section {
   display: flex;
   align-items: center;
   width: 100%;
@@ -21,24 +21,24 @@
   padding: 50px 0;
 }
 
-.cityInput{
-    margin: auto;
-    width: 70%;
-    padding: 5px;
-    border-radius: 3px;
+.cityInput {
+  margin: auto;
+  width: 70%;
+  padding: 5px;
+  border-radius: 3px;
 }
 
-.location{
+.location {
   font-size: 30px;
-  font-family: Oswald;
+  font-family: 'Oswald', sans-serif;
 }
 
-.weather{
-  font-family: Oswald;
+.weather {
+  font-family: 'Oswald', sans-serif;
 }
 
-.temp{
+.temp {
   font-size: 60px;
-  font-family: Oswald;
+  font-family: 'Oswald', sans-serif;
   font-weight: bold;
 }
