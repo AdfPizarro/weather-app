@@ -10,12 +10,15 @@
   display: flex;
   align-items: center;
   width: 100%;
+  padding: 50px 0px;
 }
 
 .result_section{
   display: flex;
   align-items: center;
   width: 100%;
+  justify-content: space-around;
+  padding: 50px 0;
 }
 
 .cityInput{
@@ -23,4 +26,19 @@
     width: 70%;
     padding: 5px;
     border-radius: 3px;
+}
+
+.location{
+  font-size: 30px;
+  font-family: Oswald;
+}
+
+.weather{
+  font-family: Oswald;
+}
+
+.temp{
+  font-size: 60px;
+  font-family: Oswald;
+  font-weight: bold;
 }
