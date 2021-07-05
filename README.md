@@ -1,9 +1,9 @@
-# Restaurant Page
-Landing page for a restaurant
+# Weather app
+
 
 ![screenshot](./images/ss.png)
 
-This is a webpage to show a landing page, the menu and contact info for a restaurant
+A web app that connects with the Openweather api to get the weather of the selected location
 
 ## Built With
 
@@ -11,7 +11,7 @@ This is a webpage to show a landing page, the menu and contact info for a restau
 
 ## Live Demo
 
-[Todo List Live Demo](https://adfpizarro.github.io/restaurant-page/)
+[Todo List Live Demo](https://adfpizarro.github.io/weather-app/)
 
 ## Getting Started
 
